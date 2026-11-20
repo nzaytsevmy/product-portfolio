@@ -24,3 +24,8 @@ body>header nav {display:flex;gap:clamp(10px,2vw,25px);font-size:.95rem}
 @media(max-width:680px){.case-page .case-visual img{aspect-ratio:1.45}}
 .work-card p .card-metric {display:block;font-size:clamp(18px,2vw,25px);line-height:1.04;color:#213f34;margin:.35em 0}
 @media(prefers-reduced-motion:reduce){.pause{display:none}}
+
+.story .product-analysis {border-top:2px solid #254137;margin-top:2.5rem;padding-top:1.4rem}
+.story .product-analysis .analysis-kicker {color:var(--muted);font-size:.9rem;font-weight:600}
+.story .product-analysis h2 {margin:.45rem 0 1.25rem;font-size:clamp(1.5rem,2.5vw,2.15rem);max-width:29ch}
+.story .product-analysis h3 {font-size:1.1rem;line-height:1.25;margin:1.3rem 0 .4rem}
