@@ -136,3 +136,10 @@ a.screen:hover {outline:2px solid var(--link)}
   .diagram text[font-size="14"] {font-size:21px}
 }
 .facts .num {font-variant-numeric:lining-nums tabular-nums}
+
+.project-photo {display:block;width:100%;height:auto}
+.feature>.project-photo {align-self:center}
+.card .cover {padding:0}
+.index-name {display:flex;align-items:center;gap:.8rem}
+.index-name .project-photo {width:clamp(3rem,7vw,5.6rem);flex:none}
+@media(max-width:47rem){.feature>.project-photo{order:1}}
