@@ -29,3 +29,25 @@ body>header nav {display:flex;gap:clamp(10px,2vw,25px);font-size:.95rem}
 .story .product-analysis .analysis-kicker {color:var(--muted);font-size:.9rem;font-weight:600}
 .story .product-analysis h2 {margin:.45rem 0 1.25rem;font-size:clamp(1.5rem,2.5vw,2.15rem);max-width:29ch}
 .story .product-analysis h3 {font-size:1.1rem;line-height:1.25;margin:1.3rem 0 .4rem}
+
+/* Case reading layout */
+.case-page .case-body {border-top:0;padding-top:0}
+.case-page .contents, .case-page .source-links {padding-top:.65rem;border-top:1px solid #ced9d2}
+.case-page .contents a, .case-page .source-links a {padding-block:.25rem}
+.story .case-evidence {padding:clamp(18px,3.5vw,37px);border-radius:14px;background:#eaf0ed;color:#182f28;margin-bottom:2.4rem}
+.story .case-evidence h2 {font-family:Arial,Helvetica,sans-serif;font-weight:650;letter-spacing:-.045em;font-size:clamp(1.65rem,3vw,2.5rem);max-width:26ch}
+.evidence-metrics {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,10rem),1fr));gap:14px;margin:1.35rem 0}
+.evidence-metrics div {padding:.75rem .85rem;border:1px solid #c6d5cd;border-radius:6px;display:flex;flex-direction:column-reverse;justify-content:start;gap:.45rem}
+.evidence-metrics dt {font-size:.86rem;line-height:1.33}
+.evidence-metrics dd {margin:0;color:#214f3f;font-size:clamp(1.4rem,3.1vw,2.3rem);line-height:1.05;letter-spacing:-.045em;font-weight:700}
+.story .case-evidence .evidence-source {margin-top:1rem;font-size:.83rem;color:#465d54}
+.story .product-analysis {padding:clamp(18px,3vw,33px);border-top:0;background:#172f29;color:#f5f6f0;border-radius:14px}
+.story .product-analysis h2 {font-family:Arial,Helvetica,sans-serif;font-size:clamp(1.7rem,3.3vw,3rem);font-weight:650;letter-spacing:-.045em;max-width:26ch}
+.story .product-analysis .analysis-kicker, .story .analysis-visual figcaption {color:#bfd3c9}
+.story .analysis-visual {margin:1.25rem 0;max-width:none}
+.analysis-visual img {display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:8px}
+.analysis-columns {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2.5vw,28px)}
+.analysis-columns>div {border-top:1px solid #54796a}
+.story .analysis-columns h3 {font-size:1.16rem;color:#fff}
+.story .analysis-columns p {font-size:.98rem}
+@media(max-width:960px){.analysis-columns {grid-template-columns:1fr}}
