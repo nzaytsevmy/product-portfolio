@@ -18,6 +18,7 @@
 .ping3-evidence p {font-size:1.04rem}
 .ping3-toc {display:flex;gap:12px 24px;flex-wrap:wrap;margin:1.6rem 0 0;padding:.8rem 0;border-bottom:1px solid var(--line);font-size:.91rem}
 .ping3-toc a {color:var(--deep)}
+.ping3-story {overflow-wrap:anywhere}
 .ping3-story section {margin-top:clamp(42px,6vw,96px);scroll-margin:24px}
 .ping3-story h2 {font-size:clamp(1.9rem,3.7vw,3.65rem);line-height:1.06;letter-spacing:-.05em;max-width:28ch;margin:0 0 .65em}
 .ping3-story h3 {font-size:1.2rem;margin:0 0 .55rem}
