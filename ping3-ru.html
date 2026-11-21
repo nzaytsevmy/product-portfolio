@@ -1,40 +1,334 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Ping3 · Никита Зайцев</title><link rel="stylesheet" href="assets/style.css"><link rel="stylesheet" href="assets/work.css"><link rel="stylesheet" href="assets/ping3.css"></head><body class="case-page"><a class="skip" href="#main">К содержанию</a><div class="wrap"><header><a class="identity" href="index.html"><span aria-hidden="true" class="mark">NZ</span>Никита Зайцев</a><nav class="nav"><a class="worklink" href="index.html#work">Проекты</a><a href="assets/cv-ru.pdf">Резюме</a><a class="lang" href="ping3-en.html" lang="en">EN</a></nav></header><main class="ping3-main" id="main">
-<section class="ping3-hero">
-  <div>
-    <p class="ping3-eyebrow">MVP Group / Ping3 · 2024–2026</p>
-    <h1>Один API для сети из 20 кредиторов</h1>
-    <p class="ping3-lead">Я построил Ping3 с нуля, чтобы партнёр мог показать клиенту предложения нескольких МФО в своём интерфейсе. Интеграцию с каждой МФО взял на себя Ping3. В июльской выборке на одну анкету приходилось в среднем 4,8 запроса кредиторам. Хотя бы одно одобрение получили 369 из 2 112 анкет.</p>
-    <p class="ping3-role">Никита Зайцев · ведущий продакт-менеджер</p>
-  </div>
-  <figure><img src="assets/covers/ping3.webp" srcset="assets/covers/ping3-640.webp 640w, assets/covers/ping3.webp 1536w" sizes="(max-width: 800px) 92vw, 51vw" width="1536" height="1024" alt="" fetchpriority="high" decoding="async"></figure>
-</section>
-<section id="case-evidence" class="ping3-evidence" aria-label="Ping3">
-  <dl><div><dt>МФО в сети Ping3</dt><dd>20</dd></div><div><dt>интеграций с МФО я довёл до запуска</dt><dd>15+</dd></div></dl><p>Один формат анкеты для партнёра и один формат ответа от платформы.</p>
-</section>
-<nav class="ping3-toc" aria-label="Содержание кейса"><a href="#part-1">Интеграция партнёра</a><a href="#part-2">Июль в цифрах</a><a href="#part-3">Где терялись заявки</a><a href="#payment-operations">Платежи</a><a href="#product-analysis">Следующее решение</a></nav>
-<article class="ping3-story">
-  <section id="part-1">
-    <h2>Что больше не приходится делать партнёру</h2>
-    <div class="ping3-pair"><p>У каждой МФО свои требования к анкете и свой способ вернуть решение. Если партнёр подключает кредиторов напрямую, каждый новый кредитор означает ещё одну интеграцию. Я вынес эту работу в отдельную платформу. Среди партнёрских интеграций был Яндекс. Партнёр передаёт одну анкету, а Ping3 готовит запросы для подходящих кредиторов и возвращает предложения в общем формате.</p><p>В спецификации анкеты 50 полей, из них 28 обязательны для приёма. Остальные поля необязательны или нужны отдельным МФО при определённых условиях. Обратно партнёр получает сумму, срок, ставку, ссылку на оформление и тип одобрения. Он может различить предварительное и полное одобрение ещё до того, как клиент откроет предложение.</p></div>
-  </section>
-  <section id="part-2" class="ping3-flow">
-    <h2>Что произошло с 2 112 анкетами</h2><p>Июль 2026 года, выборка краткосрочных займов. Анкеты поступали в течение 23 дней. Одну анкету могли рассмотреть несколько МФО, поэтому для кредитора и для клиента конверсия считается по-разному.</p>
-    <ul class="ping3-map" aria-label="Июльская выборка"><li><strong>2 112</strong><span>принятых анкет</span></li><li><strong>10 062</strong><span>запроса кредиторам</span></li><li><strong>464</strong><span>одобрения от МФО</span></li><li><strong>369</strong><span>анкет с одобрением</span></li></ul>
-    <ol class="ping3-events"><li><details><summary><span>01</span>Сколько ответов ушло партнёру</summary><p>По 2 110 из 2 112 анкет Ping3 отправил результат обработки (99,9%). Ответ мог прийти с пустым списком предложений.</p></details></li><li><details><summary><span>02</span>Сколько запросов приходилось на анкету</summary><p>10 062 запроса на 2 112 анкет дают в среднем 4,8 запроса на анкету. Число кредиторов в сети показывает охват платформы, а это среднее показывает, как работал конкретный поток.</p></details></li><li><details><summary><span>03</span>Как часто было что предложить клиенту</summary><p>Кредиторы одобрили 464 запроса из 10 062 (4,6%). Если считать по анкетам, хотя бы одно одобрение получили 369 из 2 112 (17,5%). Для партнёра это доля анкет, по которым клиенту можно было предложить заём.</p></details></li><li><details><summary><span>04</span>Что известно о выдачах</summary><p>В отчёте зафиксировано 255 переходов к предложениям. Чтобы посчитать выданные займы, нужен отдельный сигнал от МФО с идентификатором предложения. Июльская выборка показывает путь до перехода.</p></details></li></ol>
-  </section>
-  <section id="part-3" class="ping3-split">
-    <figure><img src="assets/details/ping3.webp" srcset="assets/details/ping3-640.webp 640w, assets/details/ping3.webp 1536w" sizes="(max-width: 800px) 92vw, 44vw" width="1536" height="1024" alt="" loading="lazy" decoding="async"><figcaption>Иллюстрация. Одна анкета может дать несколько предложений.</figcaption></figure>
-    <div><h2>Почему дополнительные запросы не всегда дают больше предложений</h2><p>В июле 5 227 из 10 062 запросов пришлись на профили, с которыми конкретная МФО не работала (около 52%). Ещё 2 948 получили отказ после скоринга. В первом случае стоит пересмотреть правила выбора МФО. Во втором решение уже принял кредитор.</p><p>Отдельно в отчёте выделили технические потери. С 14 по 16 июля их доля составляла 21,8%, а с 29 по 30 июля — 5,2%. За это время в интеграциях исправляли ошибки формата данных и сбои соединения. Разница между двумя периодами составила 16,6 процентного пункта. По этим данным нельзя выделить вклад каждого исправления.</p></div>
-  </section>
-  <section id="payment-operations">
-    <h2>Как я сравниваю платёжных провайдеров</h2>
-    <div class="ping3-pair"><p>Параллельно я отвечаю за платёжную инфраструктуру. Провайдеры показывают разную долю успешных оплат у разных юрлиц. Поэтому я выбираю провайдера для каждого юрлица отдельно и регулярно проверяю, сохраняется ли его преимущество.</p><p>Для сравнения нужны одинаковый период и сопоставимые попытки оплаты. Сначала я смотрю, какую долю попыток одобрил банк, затем сколько из них завершилось оплатой. Так можно понять, на каком шаге расходятся две связки, даже если итоговый процент у них близок.</p></div>
-  </section>
-  <section id="product-analysis" class="ping3-next-test" aria-labelledby="analysis-title">
-    <p class="ping3-eyebrow">Следующая продуктовая проверка</p><h2 id="analysis-title">Когда стоит подключить ещё одну МФО</h2>
-    <div class="ping3-pair"><div><h3>Кому она поможет</h3><p>Сначала я бы выделил анкеты, по которым действующая сеть редко даёт предложение. Если новый кредитор работает именно с такими профилями, у подключения есть понятная цель.</p></div><div><h3>Как проверить вклад</h3><p>Подходящие анкеты я бы случайно разделил на две группы. Для одной оставил бы текущую сеть, для другой добавил нового кредитора. Главный показатель — доля анкет хотя бы с одной подтверждённой выдачей за одинаковое время наблюдения.</p></div></div>
-    <p class="ping3-guardrail">Для такого теста сначала нужна сопоставимая полнота подтверждений от МФО. Иначе кредитор с более быстрой отчётностью может выглядеть полезнее для клиента ещё до того, как станут известны все выдачи.</p>
-  </section>
-</article>
-<a class="next-case" href="traveltribe-ru.html"><small>Следующий проект</small><strong>TravelTribe</strong></a>
-</main><footer><strong>Никита Зайцев</strong><nav><a href="assets/cv-ru.pdf">Резюме PDF</a><a href="https://www.linkedin.com/in/nzaytsev/">LinkedIn</a><a href="mailto:nzaytsev.my@gmail.com">Email</a></nav></footer></div></body></html>
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Ping3 · Никита Зайцев</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/work.css" />
+    <link rel="stylesheet" href="assets/ping3.css" />
+    <script src="assets/ping3.js" defer></script>
+  </head>
+  <body class="case-page">
+    <a class="skip" href="#main">К содержанию</a>
+    <div class="wrap">
+      <header>
+        <a class="identity" href="index.html"
+          ><span aria-hidden="true" class="mark">NZ</span>Никита Зайцев</a
+        >
+        <nav class="nav">
+          <a class="worklink" href="index.html#work">Проекты</a
+          ><a href="assets/cv-ru.pdf">Резюме</a
+          ><a class="lang" href="ping3-en.html" lang="en">EN</a>
+        </nav>
+      </header>
+      <main class="ping3-main" id="main">
+        <section class="ping3-hero">
+          <div class="ping3-hero-copy">
+            <p class="ping3-eyebrow">MVP Group / Ping3 · 2024–2026</p>
+            <h1>Один API для сети из 20 кредиторов</h1>
+            <p class="ping3-lead">
+              Я построил Ping3 с нуля, чтобы партнёр мог показывать предложения
+              разных кредиторов в своём интерфейсе. Партнёру достаточно
+              подключить один API.
+            </p>
+            <p class="ping3-role">Никита Зайцев · ведущий продакт-менеджер</p>
+            <a class="ping3-cta" href="#part-1">Посмотреть кейс</a>
+          </div>
+          <figure>
+            <img
+              src="assets/covers/ping3.webp"
+              srcset="
+                assets/covers/ping3-640.webp  640w,
+                assets/covers/ping3.webp     1536w
+              "
+              sizes="(max-width: 800px) 92vw, 51vw"
+              width="1536"
+              height="1024"
+              alt=""
+              fetchpriority="high"
+              decoding="async"
+            />
+          </figure>
+        </section>
+        <section id="case-evidence" class="ping3-evidence" aria-label="Ping3">
+          <dl>
+            <div>
+              <dt>МФО в сети Ping3</dt>
+              <dd>20</dd>
+            </div>
+            <div>
+              <dt>интеграций с МФО я довёл до запуска</dt>
+              <dd>15+</dd>
+            </div>
+            <div>
+              <dt>анкет с одобрением<small>в июльской выборке</small></dt>
+              <dd>17,5%</dd>
+            </div>
+          </dl>
+        </section>
+        <div class="ping3-layout">
+          <nav class="ping3-toc" aria-label="Содержание кейса">
+            <a href="#part-1">Инфраструктура</a>
+            <a href="#part-2">Путь заявки</a>
+            <a href="#part-3">Надёжность</a>
+            <a href="#payment-operations">Платежи</a>
+            <a href="#product-analysis">Следующее решение</a>
+          </nav>
+          <article class="ping3-story">
+            <section id="part-1">
+              <p class="ping3-chapter">Инфраструктура</p>
+              <h2>Инфраструктура для одной интеграции</h2>
+              <div class="ping3-pair">
+                <p>
+                  У каждой МФО свои требования к анкете и свой способ вернуть
+                  решение. Если партнёр подключает кредиторов напрямую, каждый
+                  новый кредитор означает ещё одну интеграцию. Я вынес эту
+                  работу в отдельную платформу. Среди партнёрских интеграций был
+                  Яндекс. Партнёр передаёт одну анкету, а Ping3 готовит запросы
+                  для подходящих кредиторов и возвращает предложения в общем
+                  формате.
+                </p>
+                <p>
+                  В спецификации анкеты 50 полей, из них 28 обязательны для
+                  приёма. Остальные поля необязательны или нужны отдельным МФО
+                  при определённых условиях. Обратно партнёр получает сумму,
+                  срок, ставку, ссылку на оформление и тип одобрения. Он может
+                  различить предварительное и полное одобрение ещё до того, как
+                  клиент откроет предложение.
+                </p>
+              </div>
+
+              <ol class="ping3-route">
+                <li>
+                  <strong>1 API</strong><span>партнёр отправляет анкету</span>
+                </li>
+                <li>
+                  <strong>Ping3</strong><span>подбирает подходящие МФО</span>
+                </li>
+                <li><strong>20</strong><span>МФО в сети</span></li>
+              </ol>
+            </section>
+            <section id="part-2" class="ping3-flow">
+              <p class="ping3-chapter">Путь заявки</p>
+              <h2>Что произошло с 2 112 анкетами</h2>
+              <p>
+                Июль 2026 года, выборка краткосрочных займов. Анкеты поступали в
+                течение 23 дней. Одну анкету могли рассмотреть несколько МФО,
+                поэтому для кредитора и для клиента конверсия считается
+                по-разному.
+              </p>
+              <ol class="ping3-route ping3-map">
+                <li><strong>2 112</strong><span>анкет принято</span></li>
+                <li><strong>10 062</strong><span>запроса кредиторам</span></li>
+                <li><strong>464</strong><span>одобрения от МФО</span></li>
+                <li><strong>369</strong><span>анкет с одобрением</span></li>
+              </ol>
+              <dl class="ping3-rates">
+                <div>
+                  <dt>Ответ отправлен<small>2 110 из 2 112 анкет</small></dt>
+                  <dd>99,9%</dd>
+                </div>
+                <div>
+                  <dt>
+                    Есть хотя бы одно одобрение<small>369 из 2 112 анкет</small>
+                  </dt>
+                  <dd>17,5%</dd>
+                </div>
+              </dl>
+              <ol class="ping3-events">
+                <li>
+                  <details>
+                    <summary>Сколько ответов ушло партнёру</summary>
+                    <p>
+                      По 2 110 из 2 112 анкет Ping3 отправил результат обработки
+                      (99,9%). Ответ мог прийти с пустым списком предложений.
+                    </p>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                    <summary>Сколько запросов приходилось на анкету</summary>
+                    <p>
+                      10 062 запроса на 2 112 анкет дают в среднем 4,8 запроса
+                      на анкету. Число кредиторов в сети показывает охват
+                      платформы, а это среднее показывает, как работал
+                      конкретный поток.
+                    </p>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                    <summary>Как часто было что предложить клиенту</summary>
+                    <p>
+                      Кредиторы одобрили 464 запроса из 10 062 (4,6%). Если
+                      считать по анкетам, хотя бы одно одобрение получили 369 из
+                      2 112 (17,5%). Для партнёра это доля анкет, по которым
+                      клиенту можно было предложить заём.
+                    </p>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                    <summary>Что известно о выдачах</summary>
+                    <p>
+                      В отчёте зафиксировано 255 переходов к предложениям. Чтобы
+                      посчитать выданные займы, нужен отдельный сигнал от МФО с
+                      идентификатором предложения. Июльская выборка показывает
+                      путь до перехода.
+                    </p>
+                  </details>
+                </li>
+              </ol>
+            </section>
+            <section id="part-3">
+              <p class="ping3-chapter">Надёжность</p>
+
+              <h2>Как менялась надёжность</h2>
+              <div class="ping3-loss">
+                <div class="ping3-loss-heading">
+                  <p>Доля технических потерь · июль 2026</p>
+                  <strong>−16,6 п. п.</strong>
+                </div>
+                <dl>
+                  <div class="ping3-loss-row">
+                    <dt>14–16 июля</dt>
+                    <dd>21,8%</dd>
+                    <div class="ping3-track" aria-hidden="true">
+                      <span style="--value: 21.8"></span>
+                    </div>
+                  </div>
+                  <div class="ping3-loss-row">
+                    <dt>29–30 июля</dt>
+                    <dd>5,2%</dd>
+                    <div class="ping3-track" aria-hidden="true">
+                      <span style="--value: 5.2"></span>
+                    </div>
+                  </div>
+                </dl>
+                <div class="ping3-scale" aria-hidden="true">
+                  <span>0%</span><span>25%</span>
+                </div>
+              </div>
+              <div class="ping3-split">
+                <figure>
+                  <img
+                    src="assets/details/ping3.webp"
+                    srcset="
+                      assets/details/ping3-640.webp  640w,
+                      assets/details/ping3.webp     1536w
+                    "
+                    sizes="(max-width: 800px) 92vw, 44vw"
+                    width="1536"
+                    height="1024"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption>
+                    Иллюстрация. Одна анкета может дать несколько предложений.
+                  </figcaption>
+                </figure>
+                <div>
+                  <p>
+                    В июле 5 227 из 10 062 запросов пришлись на профили, с
+                    которыми конкретная МФО не работала (около 52%). Ещё 2 948
+                    получили отказ после скоринга. В первом случае стоит
+                    пересмотреть правила выбора МФО. Во втором решение уже
+                    принял кредитор.
+                  </p>
+                  <p>
+                    Отдельно в отчёте выделили технические потери. С 14 по 16
+                    июля их доля составляла 21,8%, а с 29 по 30 июля — 5,2%. За
+                    это время в интеграциях исправляли ошибки формата данных и
+                    сбои соединения. Разница между двумя периодами составила
+                    16,6 процентного пункта. По этим данным нельзя выделить
+                    вклад каждого исправления.
+                  </p>
+                </div>
+              </div>
+            </section>
+            <section id="payment-operations">
+              <p class="ping3-chapter">Платежи</p>
+              <h2>Как я выбираю платёжную связку</h2>
+              <div class="ping3-pair">
+                <p>
+                  Параллельно я отвечаю за платёжную инфраструктуру. Провайдеры
+                  показывают разную долю успешных оплат у разных юрлиц. Поэтому
+                  я выбираю провайдера для каждого юрлица отдельно и регулярно
+                  проверяю, сохраняется ли его преимущество.
+                </p>
+                <p>
+                  Для сравнения нужны одинаковый период и сопоставимые попытки
+                  оплаты. Сначала я смотрю, какую долю попыток одобрил банк,
+                  затем сколько из них завершилось оплатой. Так можно понять, на
+                  каком шаге расходятся две связки, даже если итоговый процент у
+                  них близок.
+                </p>
+              </div>
+              <ol class="ping3-route">
+                <li>
+                  <strong>Юрлицо</strong
+                  ><span>сравниваю провайдеров на сопоставимых платежах</span>
+                </li>
+                <li>
+                  <strong>Авторизация</strong
+                  ><span>доля попыток, которые одобрил банк</span>
+                </li>
+                <li>
+                  <strong>Оплата</strong
+                  ><span>доля одобренных попыток, завершившихся оплатой</span>
+                </li>
+              </ol>
+            </section>
+            <section
+              id="product-analysis"
+              class="ping3-next-test"
+              aria-labelledby="analysis-title"
+            >
+              <p class="ping3-chapter">Следующее решение</p>
+              <h2 id="analysis-title">Когда стоит подключить ещё одну МФО</h2>
+              <div class="ping3-pair">
+                <div>
+                  <h3>Кому она поможет</h3>
+                  <p>
+                    Сначала я бы выделил анкеты, по которым действующая сеть
+                    редко даёт предложение. Если новый кредитор работает именно
+                    с такими профилями, у подключения есть понятная цель.
+                  </p>
+                </div>
+                <div>
+                  <h3>Как проверить вклад</h3>
+                  <p>
+                    Подходящие анкеты я бы случайно разделил на две группы. Для
+                    одной оставил бы текущую сеть, для другой добавил нового
+                    кредитора. Главный показатель — доля анкет хотя бы с одной
+                    подтверждённой выдачей за одинаковое время наблюдения.
+                  </p>
+                </div>
+              </div>
+              <p class="ping3-guardrail">
+                Для такого теста сначала нужна сопоставимая полнота
+                подтверждений от МФО. Иначе кредитор с более быстрой отчётностью
+                может выглядеть полезнее для клиента ещё до того, как станут
+                известны все выдачи.
+              </p>
+            </section>
+          </article>
+        </div>
+        <a class="next-case" href="traveltribe-ru.html"
+          ><small>Следующий проект</small><strong>TravelTribe</strong></a
+        >
+      </main>
+      <footer>
+        <strong>Никита Зайцев</strong>
+        <nav>
+          <a href="assets/cv-ru.pdf">Резюме PDF</a
+          ><a href="https://www.linkedin.com/in/nzaytsev/">LinkedIn</a
+          ><a href="mailto:nzaytsev.my@gmail.com">Email</a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>

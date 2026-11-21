@@ -1,40 +1,345 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Ping3 · Nikita Zaytsev</title><link rel="stylesheet" href="assets/style.css"><link rel="stylesheet" href="assets/work.css"><link rel="stylesheet" href="assets/ping3.css"></head><body class="case-page"><a class="skip" href="#main">Skip to content</a><div class="wrap"><header><a class="identity" href="home-en.html"><span aria-hidden="true" class="mark">NZ</span>Nikita Zaytsev</a><nav class="nav"><a class="worklink" href="home-en.html#work">Projects</a><a href="assets/cv-en.pdf">Résumé</a><a class="lang" href="ping3-ru.html" lang="ru">RU</a></nav></header><main class="ping3-main" id="main">
-<section class="ping3-hero">
-  <div>
-    <p class="ping3-eyebrow">MVP Group / Ping3 · 2024–2026</p>
-    <h1>One API for a network of 20 lenders</h1>
-    <p class="ping3-lead">I built Ping3 from scratch so partners could show offers from several lenders inside their own application flow. Ping3 took on the integration work for each lender. In the July sample, each application generated 4.8 lender requests on average. Of 2,112 applications, 369 received at least one approval.</p>
-    <p class="ping3-role">Nikita Zaytsev · Lead Product Manager</p>
-  </div>
-  <figure><img src="assets/covers/ping3.webp" srcset="assets/covers/ping3-640.webp 640w, assets/covers/ping3.webp 1536w" sizes="(max-width: 800px) 92vw, 51vw" width="1536" height="1024" alt="" fetchpriority="high" decoding="async"></figure>
-</section>
-<section id="case-evidence" class="ping3-evidence" aria-label="Ping3">
-  <dl><div><dt>lenders in the Ping3 network</dt><dd>20</dd></div><div><dt>lender integrations I took live</dt><dd>15+</dd></div></dl><p>One application format for the partner and one response format from the platform.</p>
-</section>
-<nav class="ping3-toc" aria-label="Case contents"><a href="#part-1">Partner integration</a><a href="#part-2">July results</a><a href="#part-3">Where requests fell through</a><a href="#payment-operations">Payments</a><a href="#product-analysis">Next decision</a></nav>
-<article class="ping3-story">
-  <section id="part-1">
-    <h2>What partners no longer have to build</h2>
-    <div class="ping3-pair"><p>Each lender requires different information and returns its decision in a different format. A partner integrating directly would have to maintain another connection for every lender it added. I built a separate platform to take on that work. Yandex was among the partners we integrated with. The partner submits one application. Ping3 prepares requests for eligible lenders and returns a standard set of offers.</p><p>The application specification covers 50 fields. Of these, 28 are mandatory at intake. The rest are conditional or optional. For each offer the partner receives an amount, term, rate, application link and approval type. It can distinguish a preliminary approval from a full one before the customer opens the offer.</p></div>
-  </section>
-  <section id="part-2" class="ping3-flow">
-    <h2>What happened to 2,112 applications</h2><p>This sample covers short-term loans in July 2026. Applications arrived on 23 days that month. Several lenders could review the same application, so conversion looks different from a lender’s perspective and a customer’s.</p>
-    <ul class="ping3-map" aria-label="July sample"><li><strong>2,112</strong><span>applications received</span></li><li><strong>10,062</strong><span>requests to lenders</span></li><li><strong>464</strong><span>lender approvals</span></li><li><strong>369</strong><span>applications with an approval</span></li></ul>
-    <ol class="ping3-events"><li><details><summary><span>01</span>How often Ping3 sent a result</summary><p>Ping3 sent a processing result for 2,110 of 2,112 applications (99.9%). A result could contain an empty list of offers.</p></details></li><li><details><summary><span>02</span>How many requests each application generated</summary><p>10,062 requests across 2,112 applications works out to 4.8 requests per application. The network size describes potential reach. This average describes the July sample.</p></details></li><li><details><summary><span>03</span>How often there was something to offer</summary><p>Lenders approved 464 of 10,062 requests (4.6%). At the application level, 369 of 2,112 received at least one approval (17.5%). That is the share for which the partner could offer the customer a loan.</p></details></li><li><details><summary><span>04</span>How far the data follows the customer</summary><p>The report recorded 255 clicks through to offers. Counting funded loans requires a separate message from the lender identifying the offer. The July data follows the customer as far as the click.</p></details></li></ol>
-  </section>
-  <section id="part-3" class="ping3-split">
-    <figure><img src="assets/details/ping3.webp" srcset="assets/details/ping3-640.webp 640w, assets/details/ping3.webp 1536w" sizes="(max-width: 800px) 92vw, 44vw" width="1536" height="1024" alt="" loading="lazy" decoding="async"><figcaption>Illustration. A single application can produce several offers.</figcaption></figure>
-    <div><h2>Why sending more requests can miss the point</h2><p>In July, 5,227 of 10,062 requests went to lenders whose criteria did not cover the applicant’s profile (about 52%). Another 2,948 were declined after scoring. The first group gives me a reason to revisit lender matching. In the second, the lender had assessed the application and made a credit decision.</p><p>The report also tracked technical losses. Its recorded rate was 21.8% on 14–16 July and 5.2% on 29–30 July, a difference of 16.6 percentage points. Connection failures and data-format errors were addressed during that period. The figures do not isolate the effect of any one fix.</p></div>
-  </section>
-  <section id="payment-operations">
-    <h2>How I choose payment providers</h2>
-    <div class="ping3-pair"><p>I also own payment processing. A provider’s completion rate can vary across legal entities, so I select providers for each entity separately and regularly check whether the preferred provider still performs better.</p><p>A useful comparison needs similar payment attempts over the same period. I look first at the share the bank authorises, then at how many of those authorisations become completed payments. Two routes can have similar overall success rates and still lose payments at different steps.</p></div>
-  </section>
-  <section id="product-analysis" class="ping3-next-test" aria-labelledby="analysis-title">
-    <p class="ping3-eyebrow">Proposed product test</p><h2 id="analysis-title">When is another lender worth adding?</h2>
-    <div class="ping3-pair"><div><h3>Who would benefit?</h3><p>I would start with applicants who rarely receive an offer from the current network. A lender willing to serve those profiles gives the integration a clear purpose.</p></div><div><h3>How I would measure its contribution</h3><p>I would randomly split eligible applications between the existing network and that same network with the new lender. The primary measure would be the share with at least one confirmed funded loan within the same observation window.</p></div></div>
-    <p class="ping3-guardrail">That test depends on comparable funding reports from lenders. A faster reporting cycle could otherwise make one lender look more valuable before the remaining outcomes arrive.</p>
-  </section>
-</article>
-<a class="next-case" href="traveltribe-en.html"><small>Next project</small><strong>TravelTribe</strong></a>
-</main><footer><strong>Nikita Zaytsev</strong><nav><a href="assets/cv-en.pdf">Résumé PDF</a><a href="https://www.linkedin.com/in/nzaytsev/">LinkedIn</a><a href="mailto:nzaytsev.my@gmail.com">Email</a></nav></footer></div></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Ping3 · Nikita Zaytsev</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/work.css" />
+    <link rel="stylesheet" href="assets/ping3.css" />
+    <script src="assets/ping3.js" defer></script>
+  </head>
+  <body class="case-page">
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="wrap">
+      <header>
+        <a class="identity" href="home-en.html"
+          ><span aria-hidden="true" class="mark">NZ</span>Nikita Zaytsev</a
+        >
+        <nav class="nav">
+          <a class="worklink" href="home-en.html#work">Projects</a
+          ><a href="assets/cv-en.pdf">Résumé</a
+          ><a class="lang" href="ping3-ru.html" lang="ru">RU</a>
+        </nav>
+      </header>
+      <main class="ping3-main" id="main">
+        <section class="ping3-hero">
+          <div class="ping3-hero-copy">
+            <p class="ping3-eyebrow">MVP Group / Ping3 · 2024–2026</p>
+            <h1>One API for a network of 20 lenders</h1>
+            <p class="ping3-lead">
+              I built Ping3 from scratch so a partner could show offers from
+              several lenders in its own interface. The partner connects to a
+              single API.
+            </p>
+            <p class="ping3-role">Nikita Zaytsev · Lead Product Manager</p>
+            <a class="ping3-cta" href="#part-1">Explore the case</a>
+          </div>
+          <figure>
+            <img
+              src="assets/covers/ping3.webp"
+              srcset="
+                assets/covers/ping3-640.webp  640w,
+                assets/covers/ping3.webp     1536w
+              "
+              sizes="(max-width: 800px) 92vw, 51vw"
+              width="1536"
+              height="1024"
+              alt=""
+              fetchpriority="high"
+              decoding="async"
+            />
+          </figure>
+        </section>
+        <section id="case-evidence" class="ping3-evidence" aria-label="Ping3">
+          <dl>
+            <div>
+              <dt>lenders in the Ping3 network</dt>
+              <dd>20</dd>
+            </div>
+            <div>
+              <dt>lender integrations I took live</dt>
+              <dd>15+</dd>
+            </div>
+            <div>
+              <dt>
+                of applications had an approval<small>in the July sample</small>
+              </dt>
+              <dd>17.5%</dd>
+            </div>
+          </dl>
+        </section>
+        <div class="ping3-layout">
+          <nav class="ping3-toc" aria-label="Case contents">
+            <a href="#part-1">Infrastructure</a>
+            <a href="#part-2">Application flow</a>
+            <a href="#part-3">Reliability</a>
+            <a href="#payment-operations">Payments</a>
+            <a href="#product-analysis">Next decision</a>
+          </nav>
+          <article class="ping3-story">
+            <section id="part-1">
+              <p class="ping3-chapter">Infrastructure</p>
+              <h2>The infrastructure behind one integration</h2>
+              <div class="ping3-pair">
+                <p>
+                  Each lender requires different information and returns its
+                  decision in a different format. A partner integrating directly
+                  would have to maintain another connection for every lender it
+                  added. I built a separate platform to take on that work.
+                  Yandex was among the partners we integrated with. The partner
+                  submits one application. Ping3 prepares requests for eligible
+                  lenders and returns a standard set of offers.
+                </p>
+                <p>
+                  The application specification covers 50 fields. Of these, 28
+                  are mandatory at intake. The rest are conditional or optional.
+                  For each offer the partner receives an amount, term, rate,
+                  application link and approval type. It can distinguish a
+                  preliminary approval from a full one before the customer opens
+                  the offer.
+                </p>
+              </div>
+
+              <ol class="ping3-route">
+                <li>
+                  <strong>1 API</strong
+                  ><span>partner submits an application</span>
+                </li>
+                <li>
+                  <strong>Ping3</strong><span>matches eligible lenders</span>
+                </li>
+                <li><strong>20</strong><span>lenders in the network</span></li>
+              </ol>
+            </section>
+            <section id="part-2" class="ping3-flow">
+              <p class="ping3-chapter">Application flow</p>
+              <h2>What happened to 2,112 applications</h2>
+              <p>
+                This sample covers short-term loans in July 2026. Applications
+                arrived on 23 days that month. Several lenders could review the
+                same application, so conversion looks different from a lender’s
+                perspective and a customer’s.
+              </p>
+              <ol class="ping3-route ping3-map">
+                <li>
+                  <strong>2,112</strong><span>applications received</span>
+                </li>
+                <li><strong>10,062</strong><span>lender requests</span></li>
+                <li><strong>464</strong><span>lender approvals</span></li>
+                <li>
+                  <strong>369</strong><span>applications with an approval</span>
+                </li>
+              </ol>
+              <dl class="ping3-rates">
+                <div>
+                  <dt>Result sent<small>2,110 of 2,112 applications</small></dt>
+                  <dd>99.9%</dd>
+                </div>
+                <div>
+                  <dt>
+                    At least one approval<small
+                      >369 of 2,112 applications</small
+                    >
+                  </dt>
+                  <dd>17.5%</dd>
+                </div>
+              </dl>
+              <ol class="ping3-events">
+                <li>
+                  <details>
+                    <summary>How often Ping3 sent a result</summary>
+                    <p>
+                      Ping3 sent a processing result for 2,110 of 2,112
+                      applications (99.9%). A result could contain an empty list
+                      of offers.
+                    </p>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                    <summary>
+                      How many requests each application generated
+                    </summary>
+                    <p>
+                      10,062 requests across 2,112 applications works out to 4.8
+                      requests per application. The network size describes
+                      potential reach. This average describes the July sample.
+                    </p>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                    <summary>How often there was something to offer</summary>
+                    <p>
+                      Lenders approved 464 of 10,062 requests (4.6%). At the
+                      application level, 369 of 2,112 received at least one
+                      approval (17.5%). That is the share for which the partner
+                      could offer the customer a loan.
+                    </p>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                    <summary>How far the data follows the customer</summary>
+                    <p>
+                      The report recorded 255 clicks through to offers. Counting
+                      funded loans requires a separate message from the lender
+                      identifying the offer. The July data follows the customer
+                      as far as the click.
+                    </p>
+                  </details>
+                </li>
+              </ol>
+            </section>
+            <section id="part-3">
+              <p class="ping3-chapter">Reliability</p>
+
+              <h2>How reliability changed</h2>
+              <div class="ping3-loss">
+                <div class="ping3-loss-heading">
+                  <p>Technical loss rate · July 2026</p>
+                  <strong>−16.6 pp</strong>
+                </div>
+                <dl>
+                  <div class="ping3-loss-row">
+                    <dt>14–16 July</dt>
+                    <dd>21.8%</dd>
+                    <div class="ping3-track" aria-hidden="true">
+                      <span style="--value: 21.8"></span>
+                    </div>
+                  </div>
+                  <div class="ping3-loss-row">
+                    <dt>29–30 July</dt>
+                    <dd>5.2%</dd>
+                    <div class="ping3-track" aria-hidden="true">
+                      <span style="--value: 5.2"></span>
+                    </div>
+                  </div>
+                </dl>
+                <div class="ping3-scale" aria-hidden="true">
+                  <span>0%</span><span>25%</span>
+                </div>
+              </div>
+              <div class="ping3-split">
+                <figure>
+                  <img
+                    src="assets/details/ping3.webp"
+                    srcset="
+                      assets/details/ping3-640.webp  640w,
+                      assets/details/ping3.webp     1536w
+                    "
+                    sizes="(max-width: 800px) 92vw, 44vw"
+                    width="1536"
+                    height="1024"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption>
+                    Illustration. A single application can produce several
+                    offers.
+                  </figcaption>
+                </figure>
+                <div>
+                  <p>
+                    In July, 5,227 of 10,062 requests went to lenders whose
+                    criteria did not cover the applicant’s profile (about 52%).
+                    Another 2,948 were declined after scoring. The first group
+                    gives me a reason to revisit lender matching. In the second,
+                    the lender had assessed the application and made a credit
+                    decision.
+                  </p>
+                  <p>
+                    The report also tracked technical losses. Its recorded rate
+                    was 21.8% on 14–16 July and 5.2% on 29–30 July, a difference
+                    of 16.6 percentage points. Connection failures and
+                    data-format errors were addressed during that period. The
+                    figures do not isolate the effect of any one fix.
+                  </p>
+                </div>
+              </div>
+            </section>
+            <section id="payment-operations">
+              <p class="ping3-chapter">Payments</p>
+              <h2>How I choose a payment provider</h2>
+              <div class="ping3-pair">
+                <p>
+                  I also own payment processing. A provider’s completion rate
+                  can vary across legal entities, so I select providers for each
+                  entity separately and regularly check whether the preferred
+                  provider still performs better.
+                </p>
+                <p>
+                  A useful comparison needs similar payment attempts over the
+                  same period. I look first at the share the bank authorises,
+                  then at how many of those authorisations become completed
+                  payments. Two routes can have similar overall success rates
+                  and still lose payments at different steps.
+                </p>
+              </div>
+              <ol class="ping3-route">
+                <li>
+                  <strong>Legal entity</strong
+                  ><span>compare providers on similar payments</span>
+                </li>
+                <li>
+                  <strong>Authorisation</strong
+                  ><span>share of attempts the bank approved</span>
+                </li>
+                <li>
+                  <strong>Payment</strong
+                  ><span>share of authorised attempts that completed</span>
+                </li>
+              </ol>
+            </section>
+            <section
+              id="product-analysis"
+              class="ping3-next-test"
+              aria-labelledby="analysis-title"
+            >
+              <p class="ping3-chapter">Next decision</p>
+              <h2 id="analysis-title">When is another lender worth adding?</h2>
+              <div class="ping3-pair">
+                <div>
+                  <h3>Who would benefit?</h3>
+                  <p>
+                    I would start with applicants who rarely receive an offer
+                    from the current network. A lender willing to serve those
+                    profiles gives the integration a clear purpose.
+                  </p>
+                </div>
+                <div>
+                  <h3>How I would measure its contribution</h3>
+                  <p>
+                    I would randomly split eligible applications between the
+                    existing network and that same network with the new lender.
+                    The primary measure would be the share with at least one
+                    confirmed funded loan within the same observation window.
+                  </p>
+                </div>
+              </div>
+              <p class="ping3-guardrail">
+                That test depends on comparable funding reports from lenders. A
+                faster reporting cycle could otherwise make one lender look more
+                valuable before the remaining outcomes arrive.
+              </p>
+            </section>
+          </article>
+        </div>
+        <a class="next-case" href="traveltribe-en.html"
+          ><small>Next project</small><strong>TravelTribe</strong></a
+        >
+      </main>
+      <footer>
+        <strong>Nikita Zaytsev</strong>
+        <nav>
+          <a href="assets/cv-en.pdf">Résumé PDF</a
+          ><a href="https://www.linkedin.com/in/nzaytsev/">LinkedIn</a
+          ><a href="mailto:nzaytsev.my@gmail.com">Email</a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>
