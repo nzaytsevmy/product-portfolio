@@ -2,44 +2,38 @@
 <section class="ping3-hero">
   <div>
     <p class="ping3-eyebrow">MVP Group / Ping3 · 2024–2026</p>
-    <h1>One application across a network of lenders</h1>
-    <p class="ping3-lead">At MVP Group, I built dedicated infrastructure for Ping3 from scratch. A single API gives partners access to 20 lenders and brings offers back into their own interface. I launched 15+ lender integrations and continue to oversee payment processing.</p>
-    <p class="ping3-role">Lead Product Manager</p>
+    <h1>One API for a network of 20 lenders</h1>
+    <p class="ping3-lead">I built Ping3 from scratch so partners could show offers from several lenders inside their own application flow. Ping3 took on the integration work for each lender. In the July sample, each application generated 4.8 lender requests on average. Of 2,112 applications, 369 received at least one approval.</p>
+    <p class="ping3-role">Nikita Zaytsev · Lead Product Manager</p>
   </div>
   <figure><img src="assets/covers/ping3.webp" srcset="assets/covers/ping3-640.webp 640w, assets/covers/ping3.webp 1536w" sizes="(max-width: 800px) 92vw, 51vw" width="1536" height="1024" alt="" fetchpriority="high" decoding="async"></figure>
 </section>
 <section id="case-evidence" class="ping3-evidence" aria-label="Ping3">
-  <dl><div><dt>lenders in the network</dt><dd>20</dd></div><div><dt>lender API integrations I brought live</dt><dd>15+</dd></div></dl><p>Yandex was among the partner integrations.</p>
+  <dl><div><dt>lenders in the Ping3 network</dt><dd>20</dd></div><div><dt>lender integrations I took live</dt><dd>15+</dd></div></dl><p>One application format for the partner and one response format from the platform.</p>
 </section>
-<nav class="ping3-toc" aria-label="Case contents"><a href="#part-1">The infrastructure I built</a><a href="#part-2">Four events in one application</a><a href="#part-3">Offer and funding are separate events</a><a href="#payment-operations">Payment providers</a><a href="#product-analysis">Testing the contribution of a new lender</a></nav>
+<nav class="ping3-toc" aria-label="Case contents"><a href="#part-1">Partner integration</a><a href="#part-2">July results</a><a href="#part-3">Where requests fell through</a><a href="#payment-operations">Payments</a><a href="#product-analysis">Next decision</a></nav>
 <article class="ping3-story">
   <section id="part-1">
-    <h2>The infrastructure I built</h2>
-    <div class="ping3-pair"><p>I built the path from the partner’s application to each lender’s decision. Partners submit one data format. Inside Ping3, each lender has its own required fields and request format. I could add the next lender on the platform side.</p><p>What if a partner submits an application and the connection drops before the acknowledgement arrives? The partner can resend it with the same ID. Ping3 recognises the retry, acknowledges receipt and keeps a single application for the customer.</p></div>
+    <h2>What partners no longer have to build</h2>
+    <div class="ping3-pair"><p>Each lender requires different information and returns its decision in a different format. A partner integrating directly would have to maintain another connection for every lender it added. I built a separate platform to take on that work. Yandex was among the partners we integrated with. The partner submits one application. Ping3 prepares requests for eligible lenders and returns a standard set of offers.</p><p>The application specification covers 50 fields. Of these, 28 are mandatory at intake. The rest are conditional or optional. For each offer the partner receives an amount, term, rate, application link and approval type. It can distinguish a preliminary approval from a full one before the customer opens the offer.</p></div>
   </section>
   <section id="part-2" class="ping3-flow">
-    <h2>Four events in one application</h2>
-    <p>Illustrative example. A customer submits one application. Lender A returns an offer while lender B is still reviewing it. The customer takes offer A, and A later confirms the loan was funded.</p>
-    <ol class="ping3-map" aria-label="The path of one application"><li><strong>Partner</strong><span>Submits one application</span></li><li><strong>Ping3</strong><span>Prepares separate requests</span></li><li><strong>Lenders</strong><span>Review the applications</span></li><li><strong>Partner</strong><span>Receives offers and funding status</span></li></ol>
-    <ol class="ping3-events"><li><details><summary><span>01</span>Application accepted</summary><p>Ping3 accepts the form through the partner API. Subsequent results can be linked back to the original application.</p></details></li><li><details><summary><span>02</span>Requests sent</summary><p>Ping3 sends the data in the format each eligible lender requires. Each lender assesses the application independently.</p></details></li><li><details><summary><span>03</span>Offers delivered</summary><p>Ping3 sends approved offers back in a batch. Each offer includes the approval type, amount, term, rate and a link to continue. If delivery fails, Ping3 retries.</p></details></li><li><details><summary><span>04</span>Funding confirmed</summary><p>The lender reports funding separately and identifies the offer the customer used. A repeat notification for the same funded loan can be processed without counting it twice.</p></details></li></ol>
+    <h2>What happened to 2,112 applications</h2><p>This sample covers short-term loans in July 2026. Applications arrived on 23 days that month. Several lenders could review the same application, so conversion looks different from a lender’s perspective and a customer’s.</p>
+    <ul class="ping3-map" aria-label="July sample"><li><strong>2,112</strong><span>applications received</span></li><li><strong>10,062</strong><span>requests to lenders</span></li><li><strong>464</strong><span>lender approvals</span></li><li><strong>369</strong><span>applications with an approval</span></li></ul>
+    <ol class="ping3-events"><li><details><summary><span>01</span>How often Ping3 sent a result</summary><p>Ping3 sent a processing result for 2,110 of 2,112 applications (99.9%). A result could contain an empty list of offers.</p></details></li><li><details><summary><span>02</span>How many requests each application generated</summary><p>10,062 requests across 2,112 applications works out to 4.8 requests per application. The network size describes potential reach. This average describes the July sample.</p></details></li><li><details><summary><span>03</span>How often there was something to offer</summary><p>Lenders approved 464 of 10,062 requests (4.6%). At the application level, 369 of 2,112 received at least one approval (17.5%). That is the share for which the partner could offer the customer a loan.</p></details></li><li><details><summary><span>04</span>How far the data follows the customer</summary><p>The report recorded 255 clicks through to offers. Counting funded loans requires a separate message from the lender identifying the offer. The July data follows the customer as far as the click.</p></details></li></ol>
   </section>
   <section id="part-3" class="ping3-split">
-    <figure><img src="assets/details/ping3.webp" srcset="assets/details/ping3-640.webp 640w, assets/details/ping3.webp 1536w" sizes="(max-width: 800px) 92vw, 44vw" width="1536" height="1024" alt="" loading="lazy" decoding="async"><figcaption>Generated illustration of the event flow.</figcaption></figure>
-    <div><h2>Offer and funding are separate events</h2><p>The two events answer different questions. An offer gives the customer a choice. Funding confirmation tells the partner whether the customer received the money. Counting both as one kind of conversion would make a route with more offers look stronger even if funding stayed flat.</p></div>
+    <figure><img src="assets/details/ping3.webp" srcset="assets/details/ping3-640.webp 640w, assets/details/ping3.webp 1536w" sizes="(max-width: 800px) 92vw, 44vw" width="1536" height="1024" alt="" loading="lazy" decoding="async"><figcaption>Illustration. A single application can produce several offers.</figcaption></figure>
+    <div><h2>Why sending more requests can miss the point</h2><p>In July, 5,227 of 10,062 requests went to lenders whose criteria did not cover the applicant’s profile (about 52%). Another 2,948 were declined after scoring. The first group gives me a reason to revisit lender matching. In the second, the lender had assessed the application and made a credit decision.</p><p>The report also tracked technical losses. Its recorded rate was 21.8% on 14–16 July and 5.2% on 29–30 July, a difference of 16.6 percentage points. Connection failures and data-format errors were addressed during that period. The figures do not isolate the effect of any one fix.</p></div>
   </section>
   <section id="payment-operations">
-    <h2>How I optimise payment processing</h2>
-    <div class="ping3-pair"><p>I choose payment providers for each legal entity. Payment success rates vary by entity and provider, so I regularly compare the results for each combination and revisit which provider to use.</p><p>For example, when payment success falls, two questions narrow the search. How many attempts did the bank authorise? How many ended in a completed payment? If the approval rate holds steady but fewer payments complete on the same number of attempts, the next place to look is after authorisation.</p></div>
+    <h2>How I choose payment providers</h2>
+    <div class="ping3-pair"><p>I also own payment processing. A provider’s completion rate can vary across legal entities, so I select providers for each entity separately and regularly check whether the preferred provider still performs better.</p><p>A useful comparison needs similar payment attempts over the same period. I look first at the share the bank authorises, then at how many of those authorisations become completed payments. Two routes can have similar overall success rates and still lose payments at different steps.</p></div>
   </section>
   <section id="product-analysis" class="ping3-next-test" aria-labelledby="analysis-title">
-    <p class="ping3-eyebrow">How I would test the hypothesis</p>
-    <h2 id="analysis-title">Testing the contribution of a new lender</h2>
-    <div class="ping3-pair"><div>
-      <h3>Metric</h3><p>I’d assess a new lender on the share of applications with at least one confirmed funded loan in the same observation window. An application with multiple offers counts once.</p>
-    </div><div>
-      <h3>Test</h3><p>I’d randomly assign eligible applications to the current pool or to the same pool plus the new lender. A lift in the share with confirmed funding would support expanding the network. If the mix of lenders changes but overall funding stays flat, the decision depends on integration and maintenance costs.</p>
-    </div></div>
-    <p class="ping3-guardrail">I’d also check time to first offer and the completeness of funding updates. If the new lender reports funding late, part of the difference may only appear with a longer observation window.</p>
+    <p class="ping3-eyebrow">Proposed product test</p><h2 id="analysis-title">When is another lender worth adding?</h2>
+    <div class="ping3-pair"><div><h3>Who would benefit?</h3><p>I would start with applicants who rarely receive an offer from the current network. A lender willing to serve those profiles gives the integration a clear purpose.</p></div><div><h3>How I would measure its contribution</h3><p>I would randomly split eligible applications between the existing network and that same network with the new lender. The primary measure would be the share with at least one confirmed funded loan within the same observation window.</p></div></div>
+    <p class="ping3-guardrail">That test depends on comparable funding reports from lenders. A faster reporting cycle could otherwise make one lender look more valuable before the remaining outcomes arrive.</p>
   </section>
 </article>
 <a class="next-case" href="traveltribe-en.html"><small>Next project</small><strong>TravelTribe</strong></a>
